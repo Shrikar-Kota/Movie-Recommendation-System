@@ -7,6 +7,7 @@ import json
 import requests
 import bcrypt
 import pymongo
+import os
 
 DB_URL = os.getenv("DB_URL")
 db_client = pymongo.MongoClient(DB_URL)
