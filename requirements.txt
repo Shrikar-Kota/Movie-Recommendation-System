@@ -17,3 +17,4 @@ requests==2.23.0
 pickleshare==0.7.5
 bcrypt==3.2.0
 PyMongo==3.9.0
+dnspython
