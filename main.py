@@ -8,7 +8,7 @@ import requests
 import bcrypt
 import pymongo
 
-DB_URL = "mongodb+srv://shrikar:shrikar@users.rzxie.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+DB_URL = os.getenv("DB_URL")
 db_client = pymongo.MongoClient(DB_URL)
 db_name = db_client['Users']
 db_collection = db_name['Data']
@@ -59,7 +59,7 @@ def get_suggestions():
     return list(data['movie_title'].str.capitalize())
 
 app = Flask(__name__)
-app.secret_key = 'abbsanbsansankjshajksbakjshghjdgsadhgak'
+app.secret_key = os.getenv("SECRET_KEY")
 
 
 @app.route("/")
