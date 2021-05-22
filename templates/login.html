@@ -21,42 +21,36 @@
                 <p class="error-message" id="error-message">Invalid Credentials</p> 
                 <input type="text" name="email" placeholder="Email/Phone Number" id="email"> 
                 <input type="password" name="password" placeholder="Password" id="password"> 
-                <input type="button" value="Login" onclick="authenticate()">
+                <button onclick="authenticate(event)" id="submit-button">
+                    Login
+                </button>
                 <div class="text-muted">Don't have an account? </div><a class="register" href="#" data-toggle="modal" data-target="#modalRegisterForm" onclick="onModalOpen()">Sign up.</a>
             </form>
         </div>
 
-        <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog">
+        <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" style="color: white;">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                <div class="modal-header border-bottom-0">
-                    <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onModalClose()"><span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form>
-                    <div class="modal-body">
-                    <div id="reg-error-message" class="error-message">Already registered email/phone number.</div>
-                    <div id="reg-success-message" class="success-message">Registration successful.</div>
-                    <div class="form-group">
-                        <label for="reg-email">Email address/Phone Number</label>
-                        <input type="text" class="form-control" id="reg-email" placeholder="Enter Email/Phone Number">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-password">Password</label>
-                        <input type="password" class="form-control" id="reg-password1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-password">Confirm Password</label>
-                        <input type="password" class="form-control" id="reg-password2" placeholder="Confirm Password">
-                    </div>
-                    </div>
-                    <div class="modal-footer border-top-0 d-flex justify-content-center">
-                        <button type="button" class="btn btn-success" onclick="registration()">Submit</button>
-                    </div>
-                </form>
+                <div class="modal-content box" style="width: 90%;">
+                    <form>
+                        <div class="modal-body">
+                            <h5>Create Account</h5>
+                            <br>
+                            <div id="reg-error-message" class="error-message">Already registered email/phone number.</div>
+                            <div id="reg-success-message" class="success-message">Registration successful.</div>
+                            Email Address/Phone Number
+                            <input type="text" class="form-control" id="reg-email" placeholder="Email/Phone Number">
+                            Password
+                            <input type="password" class="form-control" id="reg-password1" placeholder="Password">
+                            Confirm Password
+                            <input type="password" class="form-control" id="reg-password2" placeholder="Confirm Password">
+                        </div>
+                        <div class="modal-footer border-top-0 d-flex justify-content-center">
+                            <button type="button" class="btn btn-success" onclick="registration()" style="margin-bottom: -10%;margin-top: -10%;" id="register-button">Register</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+
     </body>
 </html>
