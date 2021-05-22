@@ -5,7 +5,7 @@ body {
 }
 
 .box {
-    width: 30%;
+    width: 27%;
     padding: 40px;
     background: #191919;
     text-align: center;
@@ -47,7 +47,7 @@ body {
     border-color: #2ecc71
 }
 
-.box input[type="button"] {
+.box button {
     background: none;
     display: block;
     margin: 20px auto 30px;
@@ -63,7 +63,7 @@ body {
     cursor: pointer
 }
 
-.box input[type="button"]:hover {
+.box button:hover {
     background: #2ecc71;
 }
 
@@ -110,4 +110,19 @@ body {
     transition: 0.25s;
     background-color: #acfac2;
     font-weight: bold;
+}
+
+#close-button {
+    background: red;
+    display: block;
+    border: 2px solid red;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    width: 15%;
+    text-align: center;
+    transition: 0.25s;
+    cursor: pointer
 }

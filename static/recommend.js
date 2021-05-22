@@ -222,6 +222,7 @@ function show_details(movie_details,arr,movie_title,my_api_key,movie_id){
       $('.results').html(response);
       $('#autoComplete').val('');
       $(window).scrollTop(0);
+      $('.movie-button').attr('disabled', true);
     }
   });
 }

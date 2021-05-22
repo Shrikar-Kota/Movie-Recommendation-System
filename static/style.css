@@ -227,3 +227,10 @@ h6 {
 	display: none;
 	color: white;
 }
+
+.logout-button{
+	border-color: red;
+	background-color: red;
+	color: white;
+	border-radius: 5%;
+}

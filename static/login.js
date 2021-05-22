@@ -1,9 +1,12 @@
-function authenticate(){
+function authenticate(event){
+    event.preventDefault()
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
+    var button = document.getElementById("submit-button");
     if (email.length != 0){
         if (password.length != 0){
             var path = window.location.origin+"/login";
+            button.innerHTML = '<span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>';
             $.ajax({
                 type: 'POST',
                 data: {'email': email, 'password': password},
@@ -12,9 +15,8 @@ function authenticate(){
                 success: function(response){
                     response = JSON.parse(response);
                     if (response['error'] == 1){
+                        onModalOpen();
                         document.getElementById('error-message').style.display = 'block';
-                        document.getElementById("email").value = "";
-                        document.getElementById("password").value = "";
                     }
                     else{
                         location.href = window.location.origin+"/home";
@@ -22,6 +24,7 @@ function authenticate(){
                 },
                 error: function(){
                     alert("Internal Server Error");
+                    onModalOpen();
                 }
             })
         }
@@ -32,6 +35,7 @@ function registration(){
     var email = document.getElementById("reg-email").value;
     var p1 = document.getElementById("reg-password1").value;
     var p2 = document.getElementById("reg-password2").value;
+    var button = document.getElementById("register-button");
     if (email.length != 0){
         var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
         var filter2 = /^\d{10}$/;
@@ -39,6 +43,7 @@ function registration(){
             if ((p1.length != 0 && p2.length != 0)){
                 if (p1 === p2){
                     var path = window.location.origin+"/register";
+                    button.innerHTML = '<span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>';
                     $.ajax({
                     type: 'POST',
                     data: {'email': email, 'password': p1},
@@ -97,11 +102,14 @@ function onModalClose(){
     document.getElementById("reg-password1").value = "";
     document.getElementById("reg-password2").value = "";
     document.getElementById('reg-success-message').style.display = 'none';
-    document.getElementById('reg-error-message').style.display = 'none';
+    document.getElementById('reg-error-message').style.display = 'none'
+    document.getElementById("register-button").innerHTML = 'Register';
+
 }
 
 function onModalOpen(){
     document.getElementById('error-message').style.display = 'none';
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
+    document.getElementById("submit-button").innerHTML = "Login";
 }
