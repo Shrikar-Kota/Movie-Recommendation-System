@@ -60,7 +60,7 @@
         </div>
         <div class="movie-content">
           {% for poster, title in movie_cards if not movie_cards.hidden %}
-            <div class="card" style="width: 15rem;border-radius: 24px;background-color: rgba(0,0,0,0);color: white;font-size: 20px;border-width: 0px;" title="{{title}}" onclick="recommendcard(this)">
+            <div class="card" style="width: 15rem;background-color: rgba(0,0,0,0);color: white;font-size: 20px;border-width: 0px;" title="{{title}}" onclick="recommendcard(this)">
               <div class="imghvr">
                 <img class="card-img-top" alt="{{title}} - poster" src={{poster}} height="360" width="240" style="border-radius: 24px;">
                 <figcaption class="fig">

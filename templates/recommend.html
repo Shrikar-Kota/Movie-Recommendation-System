@@ -65,16 +65,16 @@
   </div>
   <div class="movie-content">
         {% for name, details in casts.items() if not casts.hidden %}
-          <div class="castcard card" style="width: 15rem;border-radius: 24px;background-color: rgba(0,0,0,0);color: white;font-size: 20px;border-width: 0px;" title="Click to know more about {{name}}" data-toggle="modal" data-target="#{{details[0]}}">
+          <div class="castcard card" style="width: 15rem;background-color: rgba(0,0,0,0);color: white;font-size: 20px;border-width: 0px;" title="Click to know more about {{name}}" data-toggle="modal" data-target="#{{details[0]}}">
             <div class="imghvr">
-              <img class="card-img-top cast-img" id="{{details[0]}}" alt="{{name}} - profile" src="{{details[2]}}" style="border-radius: 50%;" height="240" width="240">
+              <img class="card-img-top cast-img" id="{{details[0]}}" alt="{{name}} - profile" src="{{details[2]}}" style="border-radius: 50%;" height="300" width="240">
               <figcaption class="fig">
                 <button class="card-btn btn btn-danger"> Know More </button>
               </figcaption>
             </div>
             <div class="card-body" style="text-align: center;">
-              <span class="card-title">{{name|title}}</span>
-              <span class="card-title">Character: {{details[1]|title}}</span>
+              <div class="card-title">{{name|title}}</div>
+              <div class="card-title">Character: {{details[1]|title}}</div>
             </div>
           </div>
         {% endfor %}
@@ -87,7 +87,7 @@
     </div>
     <div class="movie-content">
       {% for poster, title in movie_cards if not movie_cards.hidden %}
-        <div class="card" style="width: 15rem;border-radius: 24px;background-color: rgba(0,0,0,0);color: white;font-size: 20px;border-width: 0px;" title="{{title}}" onclick="recommendcard(this)">
+        <div class="card" style="width: 15rem;background-color: rgba(0,0,0,0);color: white;font-size: 20px;border-width: 0px;" title="{{title}}" onclick="recommendcard(this)">
           <div class="imghvr">
             <img class="card-img-top" alt="{{title}} - poster" src={{poster}} style="border-radius: 24px;" height="360" width="240">
             <figcaption class="fig">
