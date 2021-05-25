@@ -276,12 +276,12 @@ function get_movie_cast(movie_id,my_api_key){
       async:false,
       success: function(my_movie){
         if(my_movie.cast.length>=10){
-          top_cast = [0,1,2,3,4,5,6,7,8,9];
+          top_cast = 10;
         }
         else {
-          top_cast = [0,1,2,3,4];
+          top_cast = Math.min(my_movie.cast.length, 5);
         }
-        for(var my_cast in top_cast){
+        for(var my_cast = 0; my_cast < top_cast; my_cast++){
           cast_ids.push(my_movie.cast[my_cast].id)
           if (my_movie.cast[my_cast].name.length === 0){
             cast_names.push("Data not found");
